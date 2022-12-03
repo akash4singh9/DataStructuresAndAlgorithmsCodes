@@ -2,7 +2,6 @@ import java.util.*;
 
 class Program {
 
-
   public static int[] swap(int[] array, int a, int b)
   {
     int temp=array[b];
@@ -11,9 +10,6 @@ class Program {
     return array;
   }
   public static int[] bubbleSort(int[] array) {
-    // Write your code here.
-
-
     
     for(int i=0;i<array.length;i++)
       {
@@ -28,7 +24,6 @@ class Program {
           }
       }
 
-    
     return array;
   }
 }
