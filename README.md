@@ -4,7 +4,9 @@ This repository aims to have All major coding questions on Data Structures and A
 Current Content:
 
 Bubble Sort
+
 Insertion Sort
+
 Selection Sort
 Merge Sort
 Quick Sort
