@@ -1,4 +1,4 @@
-   /*
+    /*
     (Helper)
     --------
     Given an array of Integers, reverse it. 
