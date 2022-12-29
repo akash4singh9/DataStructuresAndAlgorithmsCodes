@@ -6,13 +6,13 @@
     Time Complexity  : O(n)
     Space Complexity : O(n) 
     */
-    public static ArrayList<Integer> generateNextLinePascalTriangle(ArrayList<Integer> previousLine) {
-        ArrayList<Integer> newLine = new ArrayList<>();
-        newLine.add(1);
+    public static ArrayList<Long> generateNextLinePascalTriangle(ArrayList<Long> previousLine) {
+        ArrayList<Long> newLine = new ArrayList<>();
+        newLine.add(1L);
         for (int i = 0; i < previousLine.size() - 1; i++) {
             newLine.add(previousLine.get(i) + previousLine.get(i + 1));
         }
-        newLine.add(1);
+        newLine.add(1L);
         return newLine;
     }
 
@@ -28,13 +28,14 @@
     imports: 
     import java.util.ArrayList;
      */
-    public static ArrayList<ArrayList<Integer>> pascalsTriangle(int n) {
-        ArrayList<ArrayList<Integer>> pascalsTriangle = new ArrayList<>();
-        ArrayList<Integer> firstLine = new ArrayList<>();
-        firstLine.add(1);
+    public static ArrayList<ArrayList<Long>> pascalsTriangle(int n) {
+        ArrayList<ArrayList<Long>> pascalsTriangle = new ArrayList<>();
+        ArrayList<Long> firstLine = new ArrayList<>();
+        firstLine.add(1L);
         pascalsTriangle.add(firstLine);
         for (int i = 1; i < n; i++) {
-            pascalsTriangle.add(pascalsTriangle.get(pascalsTriangle.size() - 1));
+            firstLine=generateNextLinePascalTriangle(firstLine);
+            pascalsTriangle.add(firstLine);
         }
         return pascalsTriangle;
     }
