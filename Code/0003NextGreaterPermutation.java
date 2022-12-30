@@ -1,4 +1,4 @@
-    /*
+/*
     (Helper)
     --------
     Given an array of Integers, reverse it. 
@@ -14,6 +14,103 @@
         }
     }
 
+    
+    /*
+    (Helper)
+    --------
+    Given an array of Integers return a boolean representing whether it is
+    non increasing. 
+    
+    Time Complexity  : O(n)
+    Space Complexity : O(1) 
+    */
+    public static boolean isNonIncreasing(int[] array) {
+        boolean isNonIncreasing = true;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i + 1] > array[i]) {
+                isNonIncreasing = false;
+            }
+        }
+        return isNonIncreasing;
+    }
+
+    /*
+    (Helper)
+    --------
+    Given an array of Integers return a boolean representing whether it is
+    non decreasing. 
+    
+    Time Complexity  : O(n)
+    Space Complexity : O(1) 
+    */
+    public static boolean isNonDecreasing(int[] array) {
+        boolean isNonDecreasing = true;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i + 1] < array[i]) {
+                isNonDecreasing = false;
+            }
+        }
+        return isNonDecreasing;
+    }
+
+    
+    /*
+    (Helper)
+    --------
+    Given an array of integers, return the integer value index where the 
+    subarray array[index ..... array.length-1] is decreasing subarray and 
+    array and array[index-1]<array[index].
+    
+    This functions assumes that the input array is not either purely 
+    non-increasing or purely non-decreasing.
+    
+    Time Complexity  : O(n)
+    Space Complexity : O(1)
+    */
+    public static int endOfIncreasingSubarrayFromEnd(int[] array) {
+        int index1 = array.length - 1;
+        for (int i = index1; i > 0; i--) {
+            if (array[i - 1] < array[i]) {
+                index1 = i;
+                break;
+            }
+        }
+        return index1;
+
+    }
+
+    
+    /*
+    (Helper)
+    --------
+    Given an array of integers, a key , a start value and an end value.
+    0<=start<array.length
+    0<=end<array.length
+    
+    array is non increasing between the indices start and end. Find an index i, 
+    such that array[i]>key and key>array[i+1]. Place key at array[i] and return 
+    array[i].
+    
+    This functions assumes that the input array is not either purely 
+    non-increasing or purely non-decreasing.
+    
+    Time Complexity  : O(n)
+    Space Complexity : O(1)
+    
+    */
+    public static int insertAtCorrectPosition(int[] array, int key, int start, int end) {
+        int temp = 1;
+        for (int i = start; i < end; i++) {
+            if (array[i] > key && array[i + 1] < key) {
+                temp = array[i];
+                array[i] = key;
+            }
+        }
+        return temp;
+    }
+
+    
+    
     /*
     Problem Statement
     -----------------
@@ -21,36 +118,28 @@
    
     Time Complexity  : O(n)
     Space Complexity : O(1)
-    */
+     */
     public static void nextGreaterPermutationArray(int[] array) {
-        // 1 4 3 2 0
-        // 1 0 2 3 4
+        // check if the array is non decreasing
+        // swap last two elements
 
-        // find the last element of increasing subarray from end 
-        // including array's last element
-        int index1 = array.length - 1;
-        boolean isNonIncreasing = false;
-        int lastElement = array[index1];
+        boolean isNonDecreasing = isNonDecreasing(array);
+        boolean isNonIncreasing = isNonIncreasing(array);
 
-        for (int i = index1; i > 0; i--) {
-            if (array[i - 1] < array[i]) {
-                index1 = i;
-                break;
-            }
-            if (i == 0) {
-                isNonIncreasing = true;
-            }
+        if (isNonDecreasing) {
+            int temp = array[array.length - 1];
+            array[array.length - 1] = array[array.length - 2];
+            array[array.length - 2] = temp;
+            return;
         }
+
         if (isNonIncreasing) {
             reverseArray(array, 0, array.length - 1);
             return;
         }
-
-        for (int i = array.length - 1; i > index1; i--) {
-            array[i] = array[i - 1];
-        }
-
-        array[index1] = lastElement;
-        reverseArray(array, index1 + 1, array.length - 1);
-
+        
+        int index=endOfIncreasingSubarrayFromEnd(array);
+        int replace=insertAtCorrectPosition(array,array[index-1],index,array.length-1);
+        array[index-1]=replace;
+        reverseArray(array, index, array.length - 1);      
     }
