@@ -124,6 +124,7 @@
     Problem Statement
     -----------------
     Given an array of size n, change the array to its next permutation.
+    Next permutation of a descending array is its sorted version.
    
     Time Complexity  : O(n)
     Space Complexity : O(1)
