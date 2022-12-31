@@ -1,20 +1,19 @@
-/*
+    /*
     (Helper)
     --------
     Given an array of Integers, reverse it. 
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-    */
+     */
     public static void reverseArray(int[] array, int start, int end) {
-        for (int i = start; i < ((start + end) / 2); i++) {
-            int temp = array[end - i];
-            array[end - i] = array[i];
+        for (int i = start; i <= ((start + end) / 2); i++) {
+            int temp = array[start + end - i];
+            array[start + end - i] = array[i];
             array[i] = temp;
         }
     }
 
-    
     /*
     (Helper)
     --------
@@ -23,10 +22,10 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-    */
+     */
     public static boolean isNonIncreasing(int[] array) {
         boolean isNonIncreasing = true;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if (array[i + 1] > array[i]) {
                 isNonIncreasing = false;
             }
@@ -42,10 +41,10 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-    */
+     */
     public static boolean isNonDecreasing(int[] array) {
         boolean isNonDecreasing = true;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if (array[i + 1] < array[i]) {
                 isNonDecreasing = false;
             }
@@ -53,7 +52,6 @@
         return isNonDecreasing;
     }
 
-    
     /*
     (Helper)
     --------
@@ -66,7 +64,7 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1)
-    */
+     */
     public static int endOfIncreasingSubarrayFromEnd(int[] array) {
         int index1 = array.length - 1;
         for (int i = index1; i > 0; i--) {
@@ -79,7 +77,6 @@
 
     }
 
-    
     /*
     (Helper)
     --------
@@ -97,20 +94,32 @@
     Time Complexity  : O(n)
     Space Complexity : O(1)
     
-    */
+     */
     public static int insertAtCorrectPosition(int[] array, int key, int start, int end) {
         int temp = 1;
-        for (int i = start; i < end; i++) {
-            if (array[i] > key && array[i + 1] < key) {
+
+        if (start == end) {
+            temp = array[end];
+            array[end] = key;
+            return temp;
+        }
+
+        for (int i = start; i <= end; i++) {
+
+            if (i == end) {
+                temp = array[end];
+                array[end] = key;
+                return temp;
+            }
+            if (array[i] >= key && array[i + 1] < key) {
                 temp = array[i];
                 array[i] = key;
+                return temp;
             }
         }
         return temp;
     }
 
-    
-    
     /*
     Problem Statement
     -----------------
@@ -126,6 +135,10 @@
         boolean isNonDecreasing = isNonDecreasing(array);
         boolean isNonIncreasing = isNonIncreasing(array);
 
+        if (array.length == 1) {
+            return;
+        }
+
         if (isNonDecreasing) {
             int temp = array[array.length - 1];
             array[array.length - 1] = array[array.length - 2];
@@ -137,9 +150,9 @@
             reverseArray(array, 0, array.length - 1);
             return;
         }
-        
-        int index=endOfIncreasingSubarrayFromEnd(array);
-        int replace=insertAtCorrectPosition(array,array[index-1],index,array.length-1);
-        array[index-1]=replace;
-        reverseArray(array, index, array.length - 1);      
+
+        int index = endOfIncreasingSubarrayFromEnd(array);
+        int replace = insertAtCorrectPosition(array, array[index - 1], index, array.length - 1);
+        array[index - 1] = replace;
+        reverseArray(array, index, array.length - 1);
     }
