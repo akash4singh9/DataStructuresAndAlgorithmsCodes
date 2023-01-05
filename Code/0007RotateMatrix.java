@@ -27,7 +27,7 @@
      */
     public static void flipMatrixHorizontally(int[][] matrix) {
         int temp = -1;
-        for (int i = 0; i <= (matrix.length / 2); i++) {
+        for (int i = 0; i <(matrix.length / 2); i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 temp = matrix[i][j];
                 matrix[i][j] = matrix[matrix.length - i - 1][j];
@@ -39,12 +39,12 @@
     /*
     Problem Statement
     -----------------
-    Given a square matrix, rotate matrix clockwise by 90 degree
+    Given a square matrix, rotate matrix anticlockwise by 90 degree
     
     Time Complexity  : O(m*n) m=row size n=column size
     Space Complexity : O(1)
      */
-    public static void rotateMatrixClockwise90Degree(int[][] matrix) {
+    public static void rotateMatrixAntiClockwise90Degree(int[][] matrix) {
         transposeSquareMatrix(matrix);
         flipMatrixHorizontally(matrix);
     }
