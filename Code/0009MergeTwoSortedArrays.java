@@ -7,7 +7,7 @@
     Time Complexity  : O(n)
     Space Complexity : O(n) 
      */
-    public static void merge2SortedArrays(int[] array, int mid) {
+    public static int[] merge2SortedArrays(int[] array, int mid) {
         int[] auxiliary=new int[array.length]; 
         int pos = 0;
         int i = 0;
@@ -15,17 +15,18 @@
 
         while (i < mid && j < array.length) {`
             if (array[i] > array[j]) {
-                array[pos++] = array[j++];
+                auxiliary[pos++] = array[j++];
             } else {
-                array[pos++] = array[i++];
+                auxiliary[pos++] = array[i++];
             }
         }
 
         while (i < mid) {
-            array[pos++] = array[i++];
+            auxiliary[pos++] = array[i++];
         }
 
         while (j < array.length) {
-            array[pos++] = array[j++];
+            auxiliary[pos++] = array[j++];
         }
+      return auxiliary;
     }
