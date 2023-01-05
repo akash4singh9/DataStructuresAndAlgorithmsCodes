@@ -49,24 +49,19 @@
         int ones = 0;
 
         for (int i = 0; i < array.length; i++) {
-            switch (array[i]) {
-                case 0:
-                    zeroes++;
-                case 1:
-                    ones++;
-            }
+            if(array[i]==0)
+                zeroes++;
+            if(array[i]==1)
+                ones++;
         }
-
-        byte curr = 0;
-        int i = 0;
-        while (i < array.length) {
-            array[i] = curr;
-            if (i == zeroes - 1) {
-                curr = 1;
-            }
-            if (i == zeroes + ones - 1) {
-                curr = 2;
-            }
+        
+        for(int i=0;i<array.length;i++)
+        {
+            if(zeroes>0)
+            {array[i]=0;zeroes--;}
+            else if(ones>0)
+            {  array[i]=1;ones--;}
+            else
+                array[i]=2;
         }
-
     }
