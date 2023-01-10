@@ -4,7 +4,7 @@ class Program {
   public static int[] auxArray;
   
     /*
-    Problem Statement
+    (Helper)
     -----------------
     Given an array of length n, and four integers start1,end1,start2,end2 
     end2=end1+1 and 0<=start1<=end1<=end2<=start2<n.
