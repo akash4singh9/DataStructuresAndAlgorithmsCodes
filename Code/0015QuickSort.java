@@ -1,6 +1,20 @@
-import java.util.*;
+
 
 class Program {
+
+    /*
+    (Helper)
+    -----------------
+    Given an array of size n, an integer start and an integer end.
+    Rearrange the elements of the array between the start and end indices (both inclusive) 
+    such that all the elements less than array[start] appear on the left of the array[start] and
+    all the elements greater than array[start] appear on the right of the array[end].Doing so 
+    makes array[start] come to a place where it would have been if the array was sorted between
+    start and end indices including both.
+    
+    Time Complexity  : O(k), k=end-start+1
+    Space Complexity : O(1)
+    */
 
   public static int partition(int[] array, int start, int end)
   {
@@ -35,7 +49,17 @@ class Program {
     array[pivot]=temp;
     return i-1;
   }
-
+  
+    /*
+    Problem Statement
+    -----------------
+    Given an array of size n, sort the array.
+    Sorted form of the array is the non decreasing permutation of 
+    the array. Use quick sort algorithm.
+    
+    Time Complexity  : O(n^2)
+    Space Complexity : O(1)
+    */
   public static void quickSort(int[] array, int start, int end)
   {
     if(start>=end)
