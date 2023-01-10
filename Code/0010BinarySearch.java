@@ -5,8 +5,8 @@
     another integer representing any index at which that target element may be
     present and -1 if it is not present in the array
     
-    Time Complexity  : O(n.log(n)) log has base 2
-    Space Complexity : O(n.log(n))
+    Time Complexity  : O(log(n)) log has base 2
+    Space Complexity : O(log(n))
     */
 
 class Program {
