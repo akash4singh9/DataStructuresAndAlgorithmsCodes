@@ -54,4 +54,4 @@ class Program {
           swap(array,i,findMin(array,i,array.length-1));
     return array;
   } 
-}
+} 
