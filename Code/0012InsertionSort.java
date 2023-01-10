@@ -6,7 +6,7 @@ class Program {
     (Helper)
     -----------------
     Given an array of size n, and an index i.
-    Array is non decreasing upto index i-1.
+    Array is sorted(non decreasing) upto index i-1.
     Make the array sorted(non decreasing) upto index i.
     
     Time Complexity  : O(n)
