@@ -53,5 +53,5 @@ class Program {
     for(int i=0;i<array.length;i++)
           swap(array,i,findMin(array,i,array.length-1));
     return array;
-  }
+  } 
 }
