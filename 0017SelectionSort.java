@@ -38,7 +38,6 @@ class Program {
     array[i2] =temp;
   }
   
-  
     /*
     Problem Statement
     -----------------
