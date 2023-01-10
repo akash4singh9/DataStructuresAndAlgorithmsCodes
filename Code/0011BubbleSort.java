@@ -1,6 +1,14 @@
-import java.util.*;
 
-class Program {
+   
+    /*
+    (Helper)
+    -----------------
+    Given an array and two integers, swap the elements in the array
+    at those two indices.
+    
+    Time Complexity  : O(1)
+    Space Complexity : O(1)
+    */
 
   public static int[] swap(int[] array, int a, int b)
   {
@@ -9,6 +17,17 @@ class Program {
     array[a]=temp;
     return array;
   }
+
+    /*
+    Problem Statement
+    -----------------
+    Given an array of size n, sort the array.
+    Sorted form of the array is the non decreasing permutation of 
+    the array. Use bubble sort algorithm.
+    
+    Time Complexity  : O(n^2)
+    Space Complexity : O(1)
+    */
   public static int[] bubbleSort(int[] array) {
     
     for(int i=0;i<array.length;i++)
@@ -26,4 +45,4 @@ class Program {
 
     return array;
   }
-}
+
