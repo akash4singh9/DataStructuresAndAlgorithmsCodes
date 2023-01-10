@@ -1,8 +1,10 @@
-import java.util.*;
+   
 
 class Program {
 
   public static int[] auxArray;
+  
+  
   
   public static void merge(int[] array,int start1, int end1,int start2,int end2 )
   {
@@ -25,7 +27,18 @@ class Program {
     for(int k=start1;k<=end2;k++)
       array[k]=auxArray[k];
   }
-
+    
+    /*
+    Problem Statement
+    -----------------
+    Given an array of size n, a start index and an end index sort the array.
+    Sort the array between the start and end indices including both indices.
+    Sorted form of the array is the non decreasing permutation of 
+    the array. Use merge sort algorithm.
+    
+    Time Complexity  : O(k.log(k)), k=end-start+1 , log has base 2
+    Space Complexity : O(n)
+    */
   public static void mergeSort(int[] array, int start, int end)
   {
     if(start>=end)
@@ -36,6 +49,16 @@ class Program {
     merge(array,start,mid,mid+1,end);
   }
   
+    /*
+    Problem Statement
+    -----------------
+    Given an array of size n, sort the array.
+    Sorted form of the array is the non decreasing permutation of 
+    the array. Use merge sort algorithm.
+    
+    Time Complexity  : O(n.log(n)), log has base 2
+    Space Complexity : O(n
+    */
   public static int[] mergeSort(int[] array) 
   {
       auxArray=new int[array.length];
