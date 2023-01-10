@@ -37,7 +37,7 @@ class Program {
     array[i1] =array[i2];
     array[i2] =temp;
   }
-  
+ 
     /*
     Problem Statement
     -----------------
@@ -52,5 +52,5 @@ class Program {
     for(int i=0;i<array.length;i++)
           swap(array,i,findMin(array,i,array.length-1));
     return array;
-  } 
+  }
 }
