@@ -5,7 +5,7 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-     */
+    */
     public static void reverseArray(int[] array, int start, int end) {
         for (int i = start; i <= ((start + end) / 2); i++) {
             int temp = array[start + end - i];
@@ -22,7 +22,7 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-     */
+    */
     public static boolean isNonIncreasing(int[] array) {
         boolean isNonIncreasing = true;
         for (int i = 0; i < array.length - 1; i++) {
@@ -41,7 +41,7 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1) 
-     */
+    */
     public static boolean isNonDecreasing(int[] array) {
         boolean isNonDecreasing = true;
         for (int i = 0; i < array.length - 1; i++) {
@@ -94,7 +94,7 @@
     Time Complexity  : O(n)
     Space Complexity : O(1)
     
-     */
+    */
     public static int insertAtCorrectPosition(int[] array, int key, int start, int end) {
         int temp = 1;
 
