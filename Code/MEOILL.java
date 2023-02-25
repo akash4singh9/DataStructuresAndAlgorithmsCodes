@@ -1,4 +1,3 @@
-
     /*
     Problem Statement
     -----------------
@@ -9,7 +8,7 @@
     
     Time Complexity  : O(m) m=rows
     Space Complexity : O(1)
-     */
+    */
     public int[][] mergeOverlappingIntervals(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         List<int[]> merged = new ArrayList<int[]>();
