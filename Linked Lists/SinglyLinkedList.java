@@ -179,13 +179,14 @@ class SinglyLinkedListADT {
     }
 
     public void display() {
-        System.out.println("----------");
+        System.out.println("-------------------------------");
         SENode node = head;
         while (node != null) {
             System.out.print(node.value + " ");
             node = node.next;
         }
-        System.out.println("----------");
+        System.out.println();
+        System.out.println("-------------------------------");
     }
 }
 
