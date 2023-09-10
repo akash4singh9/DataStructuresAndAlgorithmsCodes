@@ -62,7 +62,7 @@ class SinglyLinkedListADT {
     public SLLResponse addRear(int val) {
         SENode node = new SENode(val);
         if (length == 0) {
-           return addFront(val);
+            return addFront(val);
         } else {
             return addAtPosition(val, length);
         }
@@ -72,6 +72,8 @@ class SinglyLinkedListADT {
         if (pos > length || pos < 1) {
             return new SLLResponse(-1, "Invalid position specified. No node was added.");
         }
+        if (pos == 1)
+            return addFront(val);
         SENode node = new SENode(val);
         SENode insertAfter = head;
         while (pos > 2) {
@@ -82,7 +84,7 @@ class SinglyLinkedListADT {
         SENode third = insertAfter.next;
         first.next = node;
         node.next = third;
-        length--;
+        length++;
         return new SLLResponse(1, "Node added with given value.");
     }
 
@@ -107,6 +109,9 @@ class SinglyLinkedListADT {
     }
 
     public SLLResponse deleteFromPosition(int pos) {
+        if (0 <= pos && pos <= 1) {
+            return new SLLResponse(-1, "Invalid position specified, deleting nothing")
+        }
         SENode deleteAfter = this.head;
         while (pos > 2) {
             pos--;
@@ -114,10 +119,10 @@ class SinglyLinkedListADT {
         }
         SENode first = deleteAfter;
         SENode second = deleteAfter.next;
-        if(second!=null)
+        if (second != null)
             first.next = second.next;
         else
-            rear=first;
+            rear = first;
         length--;
         return new SLLResponse(1, "The give node in the linked list was deleted.");
     }
@@ -149,8 +154,7 @@ class SinglyLinkedListADT {
         return new SLLResponse(count, "The element was not found");
     }
 
-    public SLLResponse deleteParticularElement(int val)
-    {
+    public SLLResponse deleteParticularElement(int val) {
         if (this.length == 0) {
             return new SLLResponse(-1, "No node in Linked List. Deleting nothing.");
         }
@@ -158,24 +162,45 @@ class SinglyLinkedListADT {
             if (head.value == val) {
                 head = null;
                 rear = null;
+                this.length--;
+                return new SLLResponse(1, "The only node in the linked list was deleted. Linked List is now empty.");
+            } else {
+                return new SLLResponse(-1, "did not find the specified element.");
             }
-            this.length--;
-            return new SLLResponse(1, "The only node in the linked list was deleted. Linked List is now empty.");
         }
+
         SENode prev = head;
-        SENode curr = head.next;
+        while (prev.value == val && prev != null) {
+            prev = prev.next;
+        }
+        if (prev == null) {
+            head = null;
+            rear = null;
+            length = 0;
+            return new SLLResponse(1, "deleted");
+        }
+        if (prev.next = null) {
+            head = prev;
+            rear = prev;
+            length = 1;
+            return new SLLResponse(1, "deleted");
+        }
+        SENode curr = prev.next;
 
         while (curr.next != null) {
             if (curr.value == val) {
                 prev.next = curr.next;
                 this.length--;
+                curr = curr.next;
                 break;
             }
-            curr=curr.next;
-            prev=prev.next;
+            curr = curr.next;
+            prev = prev.next;
             System.out.println(1);
         }
-        return new SLLResponse(1, "All the occurences of given element were removed");
+        if (prev.next == null)
+            rear = prev;
+        return new SLLResponse(1, "All the occurences (if any) of given element were removed");
     }
 
     public void display() {
