@@ -9,7 +9,7 @@ class SENode {
     }
 }
 
-class SLLResponse {
+class SLLResponse
     int responseCode;
     static String responseMsg;
 
@@ -215,7 +215,7 @@ class SinglyLinkedListADT {
     }
 }
 
-public class SinglyLinkedList {
+public clas SinglyLinkedList {
     public static void main(String[] args) {
         SinglyLinkedListADT linkedList = new SinglyLinkedListADT();
         Scanner scan = new Scanner(System.in);
