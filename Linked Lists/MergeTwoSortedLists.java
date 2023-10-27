@@ -6,7 +6,7 @@
  *     ListNode(int x) { val = x; next = null; }
  * }
  */
-public class MergeTwoSortedLinkedLists {
+public class MergeTwoSortedLists {
     public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
         ListNode node=new ListNode(0);
         ListNode pointer=node;
