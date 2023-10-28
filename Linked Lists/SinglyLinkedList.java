@@ -10,29 +10,29 @@ class SENode {
 }
 
 class SLLResponse
-    int responseCode;
-    static String responseMsg;
+        int responseCode;
+        static String responseMsg;
 
-    public SLLResponse(int code, String msg) {
-        this.responseCode = code;
-        this.responseMsg = msg;
-    }
+        public SLLResponse(int code, String msg) {
+            this.responseCode = code;
+            this.responseMsg = msg;
+        }
 
-    public int getResponseCode() {
-        return responseCode;
-    }
+        public int getResponseCode() {
+            return responseCode;
+        }
 
-    public void setResponseCode(int responseCode) {
-        this.responseCode = responseCode;
-    }
+        public void setResponseCode(int responseCode) {
+            this.responseCode = responseCode;
+        }
 
-    public String getResponseMsg() {
-        return responseMsg;
-    }
+        public String getResponseMsg() {
+            return responseMsg;
+        }
 
-    public void setResponseMsg(String responseMsg) {
-        this.responseMsg = responseMsg;
-    }
+        public void setResponseMsg(String responseMsg) {
+            this.responseMsg = responseMsg;
+        }
 }
 
 class SinglyLinkedListADT {
@@ -215,83 +215,83 @@ class SinglyLinkedListADT {
     }
 }
 
-public clas SinglyLinkedList {
-    public static void main(String[] args) {
-        SinglyLinkedListADT linkedList = new SinglyLinkedListADT();
-        Scanner scan = new Scanner(System.in);
+    public clas SinglyLinkedList {
+public static void main(String[]args){
+        SinglyLinkedListADT linkedList=new SinglyLinkedListADT();
+        Scanner scan=new Scanner(System.in);
 
-        while (true) {
-            System.out.println("This is a program for Singly Linked Lists");
-            System.out.println("Choose one from menu :");
-            System.out.println("1. Insert an element : Front");
-            System.out.println("2. Insert an element : Rear");
-            System.out.println("3. Insert an element : Given Position");
-            System.out.println("4. Delete an element : Front");
-            System.out.println("5. Delete an element : Rear");
-            System.out.println("6. Delete an element : Given Position");
-            System.out.println("7. Delete a particular element");
-            System.out.println("8. Linear Search");
-            System.out.println("9. Sync and Display");
-            System.out.println("10. length of List");
+        while(true){
+        System.out.println("This is a program for Singly Linked Lists");
+        System.out.println("Choose one from menu :");
+        System.out.println("1. Insert an element : Front");
+        System.out.println("2. Insert an element : Rear");
+        System.out.println("3. Insert an element : Given Position");
+        System.out.println("4. Delete an element : Front");
+        System.out.println("5. Delete an element : Rear");
+        System.out.println("6. Delete an element : Given Position");
+        System.out.println("7. Delete a particular element");
+        System.out.println("8. Linear Search");
+        System.out.println("9. Sync and Display");
+        System.out.println("10. length of List");
 
-            int choice = scan.nextInt();
-            switch (choice) {
-                case 1: {
-                    System.out.println("Enter the number to be inserted at Front");
-                    int ans = scan.nextInt();
-                    System.out.println((linkedList.addFront(ans).getResponseMsg()));
-                    break;
-                }
-                case 2: {
-                    System.out.println("Enter the number to be inserted at Rear");
-                    int ans = scan.nextInt();
-                    System.out.println(linkedList.addRear(ans).getResponseMsg());
-                    break;
-                }
-                case 3: {
-                    System.out.println("Enter the number to be inserted at a specified position");
-                    int ans1 = scan.nextInt();
-                    System.out.println("Enter the specified position");
-                    int ans2 = scan.nextInt();
-                    System.out.println(linkedList.addAtPosition(ans1, ans2).getResponseMsg());
-                    break;
-                }
-                case 4: {
-                    System.out.println(linkedList.deleteFromFront().getResponseMsg());
-                    break;
-                }
-                case 5: {
-                    System.out.println(linkedList.deleteFromRear().getResponseMsg());
-                    break;
-                }
-                case 6: {
-                    System.out.println("Enter the specified position");
-                    int ans = scan.nextInt();
-                    System.out.println(linkedList.deleteFromPosition(ans).getResponseMsg());
-                    break;
-                }
-                case 7: {
-                    System.out.println("Enter the particular element");
-                    int ans = scan.nextInt();
-                    System.out.println(linkedList.deleteParticularElement(ans).getResponseMsg());
-                    break;
-                }
-                case 8: {
-                    System.out.println("Enter the element to be linear searched for");
-                    int ans = scan.nextInt();
-                    System.out.println(linkedList.linearSearch(ans).getResponseMsg());
-                    break;
-                }
-                case 9: {
-                    System.out.println(linkedList.syncDetails().getResponseMsg());
-                    linkedList.display();
-                    break;
-                }
-                case 10: {
-                    System.out.println(linkedList.getLength());
-                    break;
-                }
-            }
+        int choice=scan.nextInt();
+        switch(choice){
+        case 1:{
+        System.out.println("Enter the number to be inserted at Front");
+        int ans=scan.nextInt();
+        System.out.println((linkedList.addFront(ans).getResponseMsg()));
+        break;
         }
-    }
-}
+        case 2:{
+        System.out.println("Enter the number to be inserted at Rear");
+        int ans=scan.nextInt();
+        System.out.println(linkedList.addRear(ans).getResponseMsg());
+        break;
+        }
+        case 3:{
+        System.out.println("Enter the number to be inserted at a specified position");
+        int ans1=scan.nextInt();
+        System.out.println("Enter the specified position");
+        int ans2=scan.nextInt();
+        System.out.println(linkedList.addAtPosition(ans1,ans2).getResponseMsg());
+        break;
+        }
+        case 4:{
+        System.out.println(linkedList.deleteFromFront().getResponseMsg());
+        break;
+        }
+        case 5:{
+        System.out.println(linkedList.deleteFromRear().getResponseMsg());
+        break;
+        }
+        case 6:{
+        System.out.println("Enter the specified position");
+        int ans=scan.nextInt();
+        System.out.println(linkedList.deleteFromPosition(ans).getResponseMsg());
+        break;
+        }
+        case 7:{
+        System.out.println("Enter the particular element");
+        int ans=scan.nextInt();
+        System.out.println(linkedList.deleteParticularElement(ans).getResponseMsg());
+        break;
+        }
+        case 8:{
+        System.out.println("Enter the element to be linear searched for");
+        int ans=scan.nextInt();
+        System.out.println(linkedList.linearSearch(ans).getResponseMsg());
+        break;
+        }
+        case 9:{
+        System.out.println(linkedList.syncDetails().getResponseMsg());
+        linkedList.display();
+        break;
+        }
+        case 10:{
+        System.out.println(linkedList.getLength());
+        break;
+        }
+        }
+        }
+        }
+        }
