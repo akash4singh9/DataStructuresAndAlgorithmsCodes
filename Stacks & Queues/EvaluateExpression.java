@@ -10,7 +10,7 @@ public class EvaluateExpression {
             return ((b) operator (a))
         */
         if (s.equals("+"))
-            return a + b; 
+            return a + b;
         else if (s.equals("-"))
             return b - a;
         else if (s.equals("/"))
