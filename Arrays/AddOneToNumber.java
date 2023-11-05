@@ -18,5 +18,5 @@ public class AddOneToNumber {
             array[i] = stack.pop();
         }
         return array;
-    } 
+    }
 }
