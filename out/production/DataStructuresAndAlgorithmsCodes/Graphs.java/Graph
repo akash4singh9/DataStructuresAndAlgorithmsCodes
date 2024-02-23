@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class Graph
+{
+    int[][] adjMatrix;
+    LinkedList<LinkedList<Integer>> adjList;
+
+    public Graph
+
+
+}
