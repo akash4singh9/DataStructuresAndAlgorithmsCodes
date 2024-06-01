@@ -1,3 +1,4 @@
+public class Stocks1 {
 
     /*
     (Helper)
@@ -20,8 +21,8 @@
     /*
     Problem Statement
     -----------------
-    Given an array of stock prices for n days.Make one transaction with maximum
-    profit.Incase, profit can't be made, return 0.
+    Given an array of stock prices for n days. Make one transaction with maximum
+    profit. Incase, profit can't be made, return 0.
    
     Time Complexity  : O(n)
     Space Complexity : O(1)
@@ -32,22 +33,25 @@
             return 0;
         }
 
-        int boughtAt = index;
-        int soldAt = index + 1;
-        int maxProfit = array[soldAt] - array[boughtAt];
+        int boughtAt = array[index];
+        int maxProfit = 0;
 
         for (int i = index + 1; i < array.length; i++) {
-            if (array[i] > array[soldAt]) {
-                soldAt = i;
-                if (array[soldAt] - array[boughtAt] > maxProfit) {
-                    maxProfit = array[soldAt] - array[boughtAt];
-                }
-            }
-            if (array[i] < array[boughtAt]) {
-                boughtAt = i;
-                soldAt = i;
+            if (array[i] < boughtAt) {
+                boughtAt = array[i];
+            } else {
+                maxProfit = Math.max(maxProfit, array[i] - boughtAt);
             }
         }
 
         return maxProfit;
     }
+
+    public static void main(String[] args) {
+        int[] stockPrices = {7, 1, 5, 3, 6, 4};
+
+        int maxProfit = maxProfitOneTransaction(stockPrices);
+
+        System.out.println("Maximum Profit from one transaction: " + maxProfit);
+    }
+}

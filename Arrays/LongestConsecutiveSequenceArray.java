@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class LongestConsecutiveSequenceArray {
 
     public int minInHashSet(HashSet<Integer> set) {

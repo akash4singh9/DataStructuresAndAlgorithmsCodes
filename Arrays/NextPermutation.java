@@ -1,4 +1,6 @@
+public class NextPermutation {
 
+ 
     /*
     (Helper)
     --------
@@ -8,7 +10,7 @@
     Space Complexity : O(1) 
     */
     public static void reverseArray(int[] array, int start, int end) {
-        for (int i = start; i <= ((start + end) / 2); i++) {
+        for (int i = start; i <= (start + end) / 2; i++) {
             int temp = array[start + end - i];
             array[start + end - i] = array[i];
             array[i] = temp;
@@ -25,13 +27,12 @@
     Space Complexity : O(1) 
     */
     public static boolean isNonIncreasing(int[] array) {
-        boolean isNonIncreasing = true;
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i + 1] > array[i]) {
-                isNonIncreasing = false;
+                return false;
             }
         }
-        return isNonIncreasing;
+        return true;
     }
 
     /*
@@ -44,13 +45,12 @@
     Space Complexity : O(1) 
     */
     public static boolean isNonDecreasing(int[] array) {
-        boolean isNonDecreasing = true;
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i + 1] < array[i]) {
-                isNonDecreasing = false;
+                return false;
             }
         }
-        return isNonDecreasing;
+        return true;
     }
 
     /*
@@ -65,23 +65,20 @@
     
     Time Complexity  : O(n)
     Space Complexity : O(1)
-     */
+    */
     public static int endOfIncreasingSubarrayFromEnd(int[] array) {
-        int index1 = array.length - 1;
-        for (int i = index1; i > 0; i--) {
+        for (int i = array.length - 1; i > 0; i--) {
             if (array[i - 1] < array[i]) {
-                index1 = i;
-                break;
+                return i;
             }
         }
-        return index1;
-
+        return array.length - 1; // This should not happen for valid input
     }
 
     /*
     (Helper)
     --------
-    Given an array of integers, a key , a start value and an end value.
+    Given an array of integers, a key, a start value and an end value.
     0<=start<array.length
     0<=end<array.length
     
@@ -97,28 +94,14 @@
     
     */
     public static int insertAtCorrectPosition(int[] array, int key, int start, int end) {
-        int temp = 1;
-
-        if (start == end) {
-            temp = array[end];
-            array[end] = key;
-            return temp;
-        }
-
         for (int i = start; i <= end; i++) {
-
-            if (i == end) {
-                temp = array[end];
-                array[end] = key;
-                return temp;
-            }
-            if (array[i] >= key && array[i + 1] < key) {
-                temp = array[i];
+            if (i == end || (array[i] >= key && array[i + 1] < key)) {
+                int temp = array[i];
                 array[i] = key;
                 return temp;
             }
         }
-        return temp;
+        return -1; // This should not happen for valid input
     }
 
     /*
@@ -129,26 +112,20 @@
    
     Time Complexity  : O(n)
     Space Complexity : O(1)
-     */
+    */
     public static void nextGreaterPermutationArray(int[] array) {
-        // check if the array is non decreasing
-        // swap last two elements
-
-        boolean isNonDecreasing = isNonDecreasing(array);
-        boolean isNonIncreasing = isNonIncreasing(array);
-
-        if (array.length == 1) {
+        if (array.length <= 1) {
             return;
         }
 
-        if (isNonDecreasing) {
+        if (isNonDecreasing(array)) {
             int temp = array[array.length - 1];
             array[array.length - 1] = array[array.length - 2];
             array[array.length - 2] = temp;
             return;
         }
 
-        if (isNonIncreasing) {
+        if (isNonIncreasing(array)) {
             reverseArray(array, 0, array.length - 1);
             return;
         }
@@ -158,3 +135,22 @@
         array[index - 1] = replace;
         reverseArray(array, index, array.length - 1);
     }
+
+    public static void main(String[] args) {
+        int[] array = {3, 2, 1};
+        System.out.println("Original Array:");
+        printArray(array);
+
+        nextGreaterPermutationArray(array);
+
+        System.out.println("Next Permutation:");
+        printArray(array);
+    }
+
+    public static void printArray(int[] array) {
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}

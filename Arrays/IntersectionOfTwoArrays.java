@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.HashMap;
+
 public class IntersectionOfTwoArrays {
     public int[] intersect(final int[] array1, final int[] array2)
     {

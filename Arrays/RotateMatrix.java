@@ -1,3 +1,5 @@
+public class RotateMatrix {
+
     /*
     (Helper)
     --------
@@ -7,7 +9,7 @@
     Space Complexity : O(1)
      */
     public static void transposeSquareMatrix(int[][] matrix) {
-        int temp = -1;
+        int temp;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = i + 1; j < matrix[0].length; j++) {
                 temp = matrix[i][j];
@@ -26,8 +28,8 @@
     Space Complexity : O(1)
      */
     public static void flipMatrixHorizontally(int[][] matrix) {
-        int temp = -1;
-        for (int i = 0; i <(matrix.length / 2); i++) {
+        int temp;
+        for (int i = 0; i < matrix.length / 2; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 temp = matrix[i][j];
                 matrix[i][j] = matrix[matrix.length - i - 1][j];
@@ -48,3 +50,29 @@
         transposeSquareMatrix(matrix);
         flipMatrixHorizontally(matrix);
     }
+
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        System.out.println("Original Matrix:");
+        printMatrix(matrix);
+
+        rotateMatrixAntiClockwise90Degree(matrix);
+
+        System.out.println("Matrix after 90-degree anticlockwise rotation:");
+        printMatrix(matrix);
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
